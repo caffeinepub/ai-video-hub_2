@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Bricolage+Grotesque:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Dark theme — AI Video Hub */
+    --background: 0.11 0.02 243;
+    --foreground: 0.98 0.003 240;
+    --card: 0.14 0.04 250;
+    --card-foreground: 0.98 0.003 240;
+    --popover: 0.16 0.04 248;
+    --popover-foreground: 0.98 0.003 240;
+    --primary: 0.78 0.15 200;
+    --primary-foreground: 0.11 0.02 243;
+    --secondary: 0.21 0.04 245;
+    --secondary-foreground: 0.98 0.003 240;
+    --muted: 0.2 0.03 245;
+    --muted-foreground: 0.65 0.04 240;
+    --accent: 0.6 0.22 300;
+    --accent-foreground: 0.98 0.003 240;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.3 0.04 245;
+    --input: 0.2 0.04 245;
+    --ring: 0.78 0.15 200;
+    --chart-1: 0.78 0.15 200;
+    --chart-2: 0.6 0.18 260;
+    --chart-3: 0.6 0.22 300;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.14 0.04 250;
+    --sidebar-foreground: 0.98 0.003 240;
+    --sidebar-primary: 0.78 0.15 200;
+    --sidebar-primary-foreground: 0.11 0.02 243;
+    --sidebar-accent: 0.21 0.04 245;
+    --sidebar-accent-foreground: 0.98 0.003 240;
+    --sidebar-border: 0.3 0.04 245;
+    --sidebar-ring: 0.78 0.15 200;
+
+    /* Custom gradient accent */
+    --gradient-from: oklch(0.78 0.15 200);
+    --gradient-via: oklch(0.6 0.18 260);
+    --gradient-to: oklch(0.6 0.22 300);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    background: linear-gradient(
+      135deg,
+      var(--gradient-from),
+      var(--gradient-via),
+      var(--gradient-to)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-border {
+    position: relative;
+  }
+
+  .gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(
+      135deg,
+      var(--gradient-from),
+      var(--gradient-via),
+      var(--gradient-to)
+    );
+    z-index: -1;
+  }
+
+  .gradient-bg {
+    background: linear-gradient(
+      135deg,
+      var(--gradient-from),
+      var(--gradient-via),
+      var(--gradient-to)
+    );
+  }
+
+  .hero-glow {
+    background: radial-gradient(
+      ellipse 80% 50% at 50% -20%,
+      oklch(0.6 0.18 260 / 0.3),
+      transparent
+    );
+  }
+
+  .card-glow:hover {
+    box-shadow: 0 0 30px oklch(0.78 0.15 200 / 0.15), 0 8px 32px
+      oklch(0 0 0 / 0.4);
+  }
+}
